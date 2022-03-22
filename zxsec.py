@@ -6,7 +6,7 @@ from datetime import datetime
 import time
 
 t1=datetime.now().strftime("%Y_%m_%d-%I_%M_%S_%p")
-
+print("pass url like this -> https://zone-xsec.com/archive/page=")
 url = str(input("URL => "))
 pnum = int(input("Pages => "))
 try:
