@@ -1,13 +1,14 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 from hashlib import new
 import requests
 import re
 from datetime import datetime
 import time
+#pass url like this => https://zone-xsec.com/archive/page=
 
 t1=datetime.now().strftime("%Y_%m_%d-%I_%M_%S_%p")
-print("pass url like this -> https://zone-xsec.com/archive/page=")
-url = str(input("URL => "))
+
+url = raw_input("URL => ")
 pnum = int(input("Pages => "))
 try:
 	for a in range(1,pnum+1):
@@ -24,6 +25,10 @@ try:
 			line = (line[-1])
 			line = line.split('/')
 			line = line[0]
+			line = line.replace('.c...','.com')
+			line = line.replace('.com...','.com')
+			line = line.replace('.co...','.com')
+			line = line.replace('...','.com')
 			if "<a" in line or "href=" in line or "<img" in line:
 				pass
 			else:
